@@ -1,0 +1,9 @@
+body{background-color: #3b3f47}
+#main_div{color:white; font-family:'Roboto', sans-serif; text-align:center;}
+.center-on-page{width:30%; margin: auto; float:center;}
+#form_div{height:25px; margin-top:15%; padding-top: 3px;}
+button{border-radius: .25em; cursor:pointer;}
+#table_div{border:1px solid white; height:100%; margin-top:5px;}
+hr{margin-bottom: 0;}
+table{border-collapse: collapse; margin:auto; text-align: left;}
+tr, td{padding: 5px; border: 1px solid #ddd;}

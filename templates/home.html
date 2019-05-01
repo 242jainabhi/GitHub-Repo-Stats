@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<style>
+		body{background-color: #3b3f47}
+		#main_div{color:white; font-family:'Roboto', sans-serif; text-align:center;}
+		.center-on-page{width:30%; margin: auto; float:center;}
+		#form_div{height:25px; margin-top:15%; padding-top: 3px;}
+		button{border-radius: .25em; cursor:pointer;}
+		#table_div{border:1px solid white; height:100%; margin-top:5px;}
+		hr{margin-bottom: 0;}
+		table{border-collapse: collapse; margin:auto; text-align: left;}
+		tr, td{padding: 5px; border: 1px solid #ddd;}
+	</style>
+	<!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"> -->
+	<head>
+		<title>Github Repository Stats</title>
+	</head>
+	<body>
+		<div id="main_div">
+			<div id="form_div" class="center-on-page">
+				<form action="{{ url_for('index') }}" method='POST'>
+					<label>Repo Name:</label>
+					<input type="text" name="repo_name">
+					<button type="submit">Fetch</button>
+				</form>
+			</div>
+			{% if stats_dict %}
+			<div id='table_div' class="center-on-page">
+				<p>Repo Name: {{ repo_name }}</p>
+				<hr>
+				<table>
+					{% for existance,count in stats_dict.items() %}
+					<tr>
+						<td>{{ existance }}</td>
+						<td>{{ count }}</td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+			{% endif %}
+		</div>
+	</body>
+</html>
