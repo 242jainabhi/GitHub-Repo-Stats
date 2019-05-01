@@ -25,7 +25,7 @@ I create a dictionary and pass it to the html template where these are displayed
 
 #### Deployment:
 I have used AWS elastic beanstalk. AWS_EB is an orchestration service offered from Amazon Web Services for deploying your application .
-The live app can accessed [here]().
+The live app can accessed [here](http://git-repo-stats.iezddgdcd9.us-east-2.elasticbeanstalk.com/).
 
 #### Areas of improvements:
 This app can further be developed to perform more sophisticated tasks.
