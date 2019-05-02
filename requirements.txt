@@ -20,7 +20,7 @@ PyJWT==1.7.1
 pypiwin32==223
 python-dateutil==2.8.0
 pywin32==224
-PyYAML==3.13
+PyYAML==4.2b1
 requests==2.20.1
 semantic-version==2.5.0
 six==1.11.0
