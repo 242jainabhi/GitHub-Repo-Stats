@@ -16,16 +16,20 @@ def get_repo_stats(repo_name):
 	'''
 
 	# Creating a Github instance using Access Token
-	g = Github('6bb4a87619afc6a33aaa801adc93782bf7891d04')
+	g = Github()
 
 	# Get the repository
 	repo = g.get_repo(repo_name)
 
 	# Get all the open issues from the repository
+	open_pulls = repo.get_pulls(state='open')
+	open_pull_titles = [pull.title for pull in open_pulls]
 	open_issues = repo.get_issues(state='open')
+	open_issues = [issue for issue in open_issues if issue.title not in open_pull_titles]
+	print(len(open_issues))
 
 	# Create a dictionary ('keys' are the desired strings, 'values' are the count of issues)
-	stats_dict = {'Total Open Issues':open_issues.totalCount,
+	stats_dict = {'Total Open Issues':len(open_issues),
 	'Opened in last 24 hours':0,
 	'Opened more than 24 hours ago but less than 7 days ago':0,
 	'Opened more than 7 days ago':0}
