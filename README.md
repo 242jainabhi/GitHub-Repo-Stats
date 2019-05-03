@@ -10,6 +10,19 @@ This app takes the repository link (https://github.com/repository-name) as input
 - Number of open issues that were opened more than 24 hours ago but less than 7 days ago
 - Number of open issues that were opened more than 7 days ago
 
+#### Installation
+This app requires python 3.6 or later versions.
+
+Clone the app using `git clone https://github.com/242jainabhi/RadiusAgent.git`.
+
+Inside the RadiusAgent directory we have requirements.txt file.
+Execute `pip install -r requirements.txt` to install all the dependencies.
+
+To launch the application on local server (`127.0.0.1:5000`), execute the 
+command `python3 application.py`. 
+
+The app is now available on your local server. 
+
 #### Technologies used:
 The app is written completely in Python.
 - PyGithub: This is a Python library to access the GitHub APIs. This library enables us to manage GitHub resources such as repositories, user profiles, and organization in our Python applications.
@@ -24,8 +37,10 @@ Also for the issues which were opened more than 7 days ago.
 I create a dictionary and pass it to the html template where these are displayed in tabular form.
 
 #### Deployment:
-I have used AWS elastic beanstalk. AWS_EB is an orchestration service offered from Amazon Web Services for deploying your application .
-The live app can accessed [here](http://git-repo-stats.iezddgdcd9.us-east-2.elasticbeanstalk.com/).
+The application is deployed on AWS. I have created one instance which is connected to a target group.
+This target group is further connected to a load balancer which re-directs the load to various servers.
+
+The application is live [here](http://repo-stats-elb-279172136.us-east-1.elb.amazonaws.com/).
 
 #### Areas of improvements:
 This app can further be developed to perform more sophisticated tasks.

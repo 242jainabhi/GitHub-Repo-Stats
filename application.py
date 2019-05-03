@@ -21,12 +21,15 @@ def get_repo_stats(repo_name):
 	# Get the repository
 	repo = g.get_repo(repo_name)
 
-	# Get all the open issues from the repository
+	# Get the list of open pulls.
 	open_pulls = repo.get_pulls(state='open')
+	# Get the titles of all open pull requests.
 	open_pull_titles = [pull.title for pull in open_pulls]
+
+	# Get all the open issues from the repository. This includes open pulls as well.	
 	open_issues = repo.get_issues(state='open')
+	# Filter out the open issues.
 	open_issues = [issue for issue in open_issues if issue.title not in open_pull_titles]
-	print(len(open_issues))
 
 	# Create a dictionary ('keys' are the desired strings, 'values' are the count of issues)
 	stats_dict = {'Total Open Issues':len(open_issues),
@@ -67,4 +70,4 @@ def index():
 
 
 if __name__ == '__main__':
-	app.run(debug=True)
+	app.run(host='0.0.0.0')
