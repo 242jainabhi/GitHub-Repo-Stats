@@ -2,6 +2,7 @@ import re
 from github import *
 from flask import Flask, render_template, request, redirect, url_for
 from datetime import datetime
+from collections import OrderedDict
 
 def get_total_seconds(issue_timestamp):
 	'''
@@ -32,10 +33,11 @@ def get_repo_stats(repo_name):
 	open_issues = [issue for issue in open_issues if issue.title not in open_pull_titles]
 
 	# Create a dictionary ('keys' are the desired strings, 'values' are the count of issues)
-	stats_dict = {'Total Open Issues':len(open_issues),
-	'Opened in last 24 hours':0,
-	'Opened more than 24 hours ago but less than 7 days ago':0,
-	'Opened more than 7 days ago':0}
+	stats_dict = OrderedDict()
+	stats_dict['Total Open Issues'] = len(open_issues)
+	stats_dict['Opened in last 24 hours'] = 0
+	stats_dict['Opened more than 24 hours ago but less than 7 days ago'] = 0
+	stats_dict['Opened more than 7 days ago'] = 0
 
 	# Populate the dictionary
 	for issue in open_issues:
